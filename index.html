@@ -172,6 +172,130 @@
 
 
   
+    
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2016/04/21/abc/">
+                abc
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+          <span class="post-time">
+            
+              发表于 2016-04-21
+            
+          </span>
+        
+          
+        
+      </div>
+    </div>
+
+    
+      <div class="post-body">
+
+        
+        
+
+        
+          <h2 id="CSS基础"><a href="#CSS基础" class="headerlink" title="CSS基础"></a>CSS基础</h2><h3 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h3><p>css盒模型包括内容(content)、填充(padding)、边框(border)、边界(margin)四个属性。</p>
+<p>标准w3c盒模型的width指content width,盒子需要占据的宽度为:<code>content width+padding*2 + border*2</code> </p>
+<p>IE盒子模型的content部分包含了border和padding,盒子需要占据的宽度为:<code>content width+margin*2</code></p>
+<h3 id="CSS选择符-可继承属性"><a href="#CSS选择符-可继承属性" class="headerlink" title="CSS选择符 可继承属性"></a>CSS选择符 可继承属性</h3><p>(1)id选择器<code>(#classId)</code><br>(2)类选择器<code>(.classname)</code><br>(3)标签选择器<code>(div,h1,p,span,table)</code><br>(4)相邻选择器<code>(h1+p)</code><br>(5)子选择器<code>(ul&gt;li)</code><br>(6)子选择器<code>(ul&gt;li)</code><br>(7)通配符选择器<code>(ul&gt;li)</code><br>(8)属性选择器<code>(a[rel = &quot;external&quot;])</code><br>(9)伪类选择器<code>(a:hover,li:nth-child)</code></p>
+<p>可继承的样式:font-size,font-family,color,ul,li,dl,dd,dt<br>不可继承样式:border,padding,margin,width,height</p>
+<h3 id="CSS计算优先级"><a href="#CSS计算优先级" class="headerlink" title="CSS计算优先级"></a>CSS计算优先级</h3><p>就近原则，同权重情况下以样式定义最近者为准；<br>载入样式以最后载入的定位为准；</p>
+<p>优先级：<br><code>(!important &gt; id &gt; class &gt; tag)</code></p>
+<p>important比内联优先级高</p>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><p><strong>display属性</strong></p>
+<p><strong>position属性</strong></p>
+<p>css有三种基本的定位机制：普通流(static、relative)、浮动(float)和绝对定位(absolute、fixed)。</p>
+<p>正常情况下，所有框都在普通流中定位，块级框从上到下一个接一个地排列（框之间的垂直距离由框的垂直外边距计算出来），行内框在一行中水平布置（可以使用水平内边距、边框和外边框调整它们的间距）。</p>
+<p>position有四个属性值，分别是：</p>
+<p> <code>static</code></p>
+<p>元素框正常生成。块级元素生成一个矩形框，作为文档流的一部分，行内元素则会创建一个或多个行框，置于其父元素中。</p>
+<p><code>relative</code></p>
+<p>元素框偏移某个距离（相对于其正常位置应该出现的位置），元素仍保持其未定位前的形状，它原本所占的空间仍保留。</p>
+<p> <code>absolute</code></p>
+<p> 元素框从文档流完全删除，并相对于其包含块定位。包含块可能是文档中的另一个元素或者是初始包含块。元素原先在正常文档流中所占的空间会关闭，就好像元素原来不存在一样。元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。</p>
+<p> <code>fixed</code></p>
+<p> 元素框的表现类似于将position设置为absolute,不过其包含快是视窗本身。</p>
+<p> 相对定位可看作普通流定位模型的一部分，因为元素的位置相对于它在普通流中的位置。</p>
+<p> <strong>float属性</strong></p>
+<p> 浮动的框可以向左或向右移动，直到它的外边缘碰到包含框或另一个的边框为止。由于浮动框不在文档的普通流中，所以文档的普通流中的块框表现的就像浮动框不存在一样。</p>
+<p> 浮动框旁边的行框被缩短，从而给浮动框留出空间，行框围绕浮动框。因此，创建浮动框可以使文本围绕图像。</p>
+<p> <strong>clear</strong></p>
+<p> 要想阻止行框围绕浮动框，需要对该框应用clear属性。clear属性的值可以是left、right、both或none,它表示框的的哪些边不应该挨着浮动框。</p>
+<p> <strong>[建议]</strong>   </p>
+<p>当元素需要撑起高度以包含内部的浮动元素时，通过对伪类设置<code>clear</code>或触发<code>BFC</code>的方式进行<code>cleafix</code>。尽量不使用增加空标签的方式。</p>
+<p>解释：<br>触发BFC的方式有很多，常见的有:</p>
+<ul>
+<li>float非none</li>
+<li>position非static</li>
+<li>overflow非visible<br>另需注意，对已经触发BFC的元素不需要进行clearfix。</li>
+</ul>
+<h3 id="display属性值和用法"><a href="#display属性值和用法" class="headerlink" title="display属性值和用法"></a>display属性值和用法</h3><ul>
+<li>none 不显示</li>
+<li>block 块级元素</li>
+<li>inline 行内元素</li>
+<li>inline-block 行内块级元素</li>
+<li>list-item 列表项</li>
+<li>table 块级表格</li>
+<li>table-cell 表格单元格</li>
+</ul>
+<h3 id="display-none和visibility-hidden-区别"><a href="#display-none和visibility-hidden-区别" class="headerlink" title="display:none和visibility:hidden 区别"></a>display:none和visibility:hidden 区别</h3><ol>
+<li>空间占据。使用display:none,元素的高度宽度等各种属性都丢失，不在占据空间；使用visibility:hidden,元素仅仅是视觉上看不见，仍占据空间</li>
+<li>回流和渲染。使用display:none产生reflow和repaint,而visibility:hidden没有这个产生性能的问题</li>
+<li>株连性。使用display:none父节点和子节点全部不可见，使用visibility:hidden的话子孙节点使用visibility:visible可以显现</li>
+</ol>
+<h3 id="文本垂直居中"><a href="#文本垂直居中" class="headerlink" title="文本垂直居中"></a>文本垂直居中</h3><p>单行文本：设置line-height和height，并使两值相等，再加上over-flow:hidden就可以了</p>
+<p>多行文本且容器高度可变：去掉高度，给出一致的padding-bottom 和padding-top就行</p>
+<p>不考虑IE的话，可以把容器当作表格单元格：设置display:table-cell;vertical-align:middle;height:500x</p>
+<p>在IE下，也可设置position为relative或absolute,然后设置top和left</p>
+<h3 id="DIV居中"><a href="#DIV居中" class="headerlink" title="DIV居中"></a>DIV居中</h3><p>方法一，绝对定位居中</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>; <span class="attribute">right</span>:<span class="number">0</span>; <span class="attribute">bottom</span>:<span class="number">0</span>; <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>:auto;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>方法二，负外边距</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50%</span>; <span class="attribute">left</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin</span>:auto;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">600px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">400px</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>:-<span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>:-<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+
+      </div>
+    
+
+    
+      <div class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/CSS/">
+                #CSS
+              </a>
+            
+          </div>
+        
+
+        
+
+        
+          <div class="post-eof the-shape"></div>
+        
+      </div>
+    
+  </div>
+
+
+  
 
           </div>
 
@@ -200,7 +324,7 @@
       <p class="site-description motion-element"></p>
       <div class="site-state motion-element">
         <div class="site-state-item site-state-posts">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </div>
         <div class="site-state-item site-state-tags">
